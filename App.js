@@ -4,11 +4,10 @@ import { StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Homepage from "./Screen/Homepage";
-
+import Constants from 'expo-constants';
 
 
 const Stack = createNativeStackNavigator();
-
 export default function App() {
   return (
     <View style={styles.container}>
@@ -25,8 +24,8 @@ export default function App() {
 const Navigation = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='Home'>
-        <Stack.Screen name="Home" component={Homepage} />
+      <Stack.Navigator>
+        <Stack.Screen  name="Homepage" component={Homepage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -35,8 +34,6 @@ const Navigation = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
-    alignItems: "center",
-    justifyContent: "center",
+    margin:1
   },
 });
