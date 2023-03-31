@@ -2,10 +2,13 @@ import React from "react";
 import { View, StyleSheet, Text, ScrollView } from "react-native";
 import Button from "../Component/Button";
 import Card from "../Component/Card";
+import Header from "./Header";
+import Footer from "./Footer";
 
 const Homepage = ({ navigation }) => {
   return (
-    <View>
+    <View >
+      <Header/>
       <View style={styles.buttonBox}>
         <Button title="OnWay" />
         <Button title="UpComing" />
@@ -13,7 +16,7 @@ const Homepage = ({ navigation }) => {
       </View>
       <View style={styles.buttonBar}></View>
       <ScrollView>
-        <View style={{marginBottom:'20%',marginTop:"1%"}}>
+        <View style={{marginBottom:'45%',marginTop:"1%"}}>
           <Card />
           <Card />
           <Card />

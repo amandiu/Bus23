@@ -1,24 +1,24 @@
 import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import Button from "./Button";
+import moment from 'moment';
+
 
 //Date formate start
 
-const date = new Date();
-// This arrangement can be altered based on how we want the date's format to appear.
-let currentdate = new Date().toJSON().slice(0, 10);
+const date = moment().format("MM-Do-YYYY");
 
 //Date formate End
 
 //Time start
-
-let time = date.getHours() + ":" + date.getMinutes();
+const time = moment().format("h:mm a");
+// Time End
 
 const Card = () => {
   return (
     <View style={styles.Cardstyle}>
       <View style={styles.date}>
-        <Text style={styles.dateText}>Date : {currentdate}</Text>
+        <Text style={styles.dateText}>Date : {date}</Text>
       </View>
       <View style={{ alignItems: "flex-end", marginRight: 15 }}>
         <Text style={styles.dateText}>{time}</Text>
@@ -26,7 +26,7 @@ const Card = () => {
 
       <View style={styles.Cardbody}>
         <View style={{flex:2, marginTop: "-5%" }}>
-          <Text style={{ fontSize: 18, fontWeight: "700" }}>BusName: Elish Bus</Text>
+          <Text style={{ fontSize: 18,marginTop: "2.5%", fontWeight: "700" }}>BusName: Elish Bus</Text>
           <Text style={styles.dateText}>From : DIU Smart City</Text>
           <Text style={styles.dateText}>Price : 30 tk</Text>
         </View>
@@ -52,20 +52,20 @@ const styles = StyleSheet.create({
     shadowOpacity: 0.15,
     shadowRadius: 5,
     elevation: 5,
-    margin: 7,
+    margin: 7
   },
   date: {
     justifyContent: "center",
-    alignItems: "center",
+    alignItems: "center"
   },
   dateText: {
     fontWeight: "400",
     color: "#A4A4A4",
     fontSize: 14,
-    marginTop: 4,
+    marginTop: 4
   },
   Cardbody: {
     flexDirection: "row",
-    padding:5,
+    padding:10
   },
 });
