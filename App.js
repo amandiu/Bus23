@@ -5,6 +5,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Homepage from "./Screen/Homepage";
 import Mappage from "./Screen/Mappage";
+import Header from "./Screen/Header";
 
 
 const Stack = createNativeStackNavigator();
@@ -29,8 +30,8 @@ const Navigation = () => {
           options={{
             headerShown: false,
           }}
-          name="Homepage"
-          component={Homepage}
+          name="Header"
+          component={Header}
         />
       </Stack.Navigator>
     </NavigationContainer>
