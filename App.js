@@ -5,10 +5,11 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Homepage from "./Screen/Homepage";
 import Mappage from "./Screen/Mappage";
-import Header from "./Screen/Header";
 
 
 const Stack = createNativeStackNavigator();
+
+
 export default function App() {
   return (
     <View style={styles.container}>
@@ -30,9 +31,10 @@ const Navigation = () => {
           options={{
             headerShown: false,
           }}
-          name="Header"
-          component={Header}
+          name="Homepage"
+          component={Homepage}
         />
+        <Stack.Screen name="Mappages" component={Mappage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -41,6 +43,6 @@ const Navigation = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 1,
+    marginTop:"1%",
   },
 });

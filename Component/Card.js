@@ -3,7 +3,6 @@ import React from "react";
 import Button from "./Button";
 import moment from 'moment';
 
-
 //Date formate start
 
 const date = moment().format("MM-Do-YYYY");
@@ -11,10 +10,10 @@ const date = moment().format("MM-Do-YYYY");
 //Date formate End
 
 //Time start
-const time = moment().format("h:mm a");
+const time = moment().startOf('minutes').fromNow(); 
 // Time End
 
-const Card = () => {
+const Card = ( {navigation} ) => {
   return (
     <View style={styles.Cardstyle}>
       <View style={styles.date}>
@@ -26,14 +25,14 @@ const Card = () => {
 
       <View style={styles.Cardbody}>
         <View style={{flex:2, marginTop: "-5%" }}>
-          <Text style={{ fontSize: 18,marginTop: "2.5%", fontWeight: "700" }}>BusName: Elish Bus</Text>
+          <Text style={{ fontSize: 18,marginTop: "1%", fontWeight: "700" }}>BusName: Elish Bus</Text>
           <Text style={styles.dateText}>From : DIU Smart City</Text>
-          <Text style={styles.dateText}>Price : 30 tk</Text>
+          <Text style={styles.dateText}>To : Mirpur-1</Text>
         </View>
 
         <View style={{ marginLeft:'2%',flex:2,marginTop:"2%"}}>
-          <Text style={styles.dateText}>To : Mirpur-1</Text>
-          <Button title="See Location" />
+          <Text style={styles.dateText}>Price : 30 tk</Text>
+          <Button title="See Location" onPress={() => navigation.navigate("Mappages")} />
         </View>
       </View>
     </View>
