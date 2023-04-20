@@ -3,7 +3,7 @@ import { View, StyleSheet, Text, ScrollView } from "react-native";
 import Button from "../Component/Button";
 import Card from "../Component/Card";
 import Header from "./Header";
-import Footer from "./Footer";
+
 
 const Homepage = ({ navigation }) => {
   return (

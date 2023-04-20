@@ -17,6 +17,13 @@ const styles = StyleSheet.create({
     height: 50,
     backgroundColor:'white',
     borderRadius:5,
-    
+    alignSelf: 'center',
+    shadowColor: 'rgba(0, 0, 0, 0.7)',
+    shadowOffset: {
+      width: 0,
+      height: 1
+    },
+    shadowRadius: 3,
+    shadowOpacity: 1
   },
 });

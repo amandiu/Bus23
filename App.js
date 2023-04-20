@@ -4,7 +4,7 @@ import { StyleSheet, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Homepage from "./Screen/Homepage";
-import Mappage from "./Screen/Mappage";
+import Maps from "./Screen/Maps";
 
 
 const Stack = createNativeStackNavigator();
