@@ -2,7 +2,7 @@ import { View, Text, StyleSheet,Image } from "react-native";
 import React from "react";
 import Button from "./Button";
 import moment from 'moment';
-// import Icon from "../assets/bus23.png"
+import Icon from "../assets/msg1224029173-11680.jpg"
 
 const time = moment().format("h:mm a");
 
@@ -12,8 +12,7 @@ const Header = () => {
     <View style={styles.headerbox}>
       <View style={styles.itembox}>
         <View style={styles.logo}>
-          <Text style={styles.icon}>LOGO</Text>
-          {/* <Image source={Icon} style={styles.icon}></Image> */}
+          <Image source={Icon} style={styles.icon}></Image> 
         </View>
 
         <View style={{ flexDirection:'row'}}>

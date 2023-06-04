@@ -35,6 +35,7 @@ export default Homepage;
 const styles = StyleSheet.create({
   buttonBox: {
     flexDirection: "row",
+    backgroundColor: "#9B9898",
   },
   buttonBar: {
     height: 2,

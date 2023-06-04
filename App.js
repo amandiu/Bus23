@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Homepage from "./Screen/Homepage";
 import Maps from "./Screen/Maps";
 import  Login  from "./Component/Login";
+import Registration from'./Component/Registration';
 
 
 
