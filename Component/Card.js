@@ -10,10 +10,10 @@ const date = moment().format("MM-Do-YYYY");
 //Date formate End
 
 //Time start
-const time = moment().format("h:mm a");
+const time = moment().startOf('minutes').fromNow(); 
 // Time End
 
-const Card = () => {
+const Card = ( {navigation} ) => {
   return (
     <View style={styles.Cardstyle}>
       <View style={styles.date}>
@@ -24,20 +24,17 @@ const Card = () => {
       </View>
 
       <View style={styles.Cardbody}>
-        <View style={{ flex: 2, marginTop: "-5%" }}>
-          <Text style={{ fontSize: 18, marginTop: "2.5%", fontWeight: "700" }}>
-            BusName: Elish Bus
-          </Text>
+
+        <View style={{flex:2, marginTop: "-5%" }}>
+          <Text style={{ fontSize: 18,marginTop: "1%", fontWeight: "700" }}>BusName: Elish Bus</Text>
           <Text style={styles.dateText}>From : DIU Smart City</Text>
           <Text style={styles.dateText}>To : Mirpur-1</Text>
         </View>
-
         <View style={{ marginLeft: "2%", flex: 2, marginTop: "2%" }}>
           <Text style={styles.dateText}>Price : 30 tk</Text>
           <View style={{ height: 40, width: 130, marginTop: 10 }}>
             <Button title="See Location" />
-          </View>
-        </View>
+          </View>      
       </View>
     </View>
   );

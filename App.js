@@ -8,6 +8,8 @@ import Maps from "./Screen/Maps";
 
 
 const Stack = createNativeStackNavigator();
+
+
 export default function App() {
   return (
     <View style={styles.container}>
@@ -32,6 +34,7 @@ const Navigation = () => {
           name="Homepage"
           component={Homepage}
         />
+        <Stack.Screen name="Mappages" component={Mappage} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -40,6 +43,6 @@ const Navigation = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    margin: 1,
+    marginTop:"1%",
   },
 });
