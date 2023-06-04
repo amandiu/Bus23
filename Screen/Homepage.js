@@ -2,7 +2,7 @@ import React from "react";
 import { View, StyleSheet, Text, ScrollView } from "react-native";
 import Button from "../Component/Button";
 import Card from "../Component/Card";
-import Header from "./Header";
+import Header from "../Component/Header";
 
 
 const Homepage = ({ navigation }) => {

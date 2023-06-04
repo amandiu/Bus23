@@ -5,6 +5,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Homepage from "./Screen/Homepage";
 import Maps from "./Screen/Maps";
+import  Login  from "./Component/Login";
+
+
 
 
 const Stack = createNativeStackNavigator();
@@ -18,7 +21,7 @@ export default function App() {
         translucent={true}
         backgroundColor="transparent"
       />
-      <Navigation/>
+      <Login/>
     </View>
   );
 }
@@ -34,7 +37,7 @@ const Navigation = () => {
           name="Homepage"
           component={Homepage}
         />
-        <Stack.Screen name="Mappages" component={Mappage} />
+        <Stack.Screen name="Mappages" component={Maps} />
       </Stack.Navigator>
     </NavigationContainer>
   );

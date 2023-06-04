@@ -3,6 +3,7 @@ import React from "react";
 import Button from "./Button";
 import moment from "moment";
 
+
 //Date formate start
 
 const date = moment().format("MM-Do-YYYY");
@@ -30,11 +31,12 @@ const Card = ( {navigation} ) => {
           <Text style={styles.dateText}>From : DIU Smart City</Text>
           <Text style={styles.dateText}>To : Mirpur-1</Text>
         </View>
-        <View style={{ marginLeft: "2%", flex: 2, marginTop: "2%" }}>
+
+
+        <View style={{ marginLeft:'2%',flex:2,marginTop:"2%"}}>
           <Text style={styles.dateText}>Price : 30 tk</Text>
-          <View style={{ height: 40, width: 130, marginTop: 10 }}>
-            <Button title="See Location" />
-          </View>      
+          <Button title="See Location" onPress={() => navigation.navigate("Mappages")} />
+        </View>
       </View>
     </View>
   );
@@ -45,7 +47,6 @@ export default Card;
 const styles = StyleSheet.create({
   Cardstyle: {
     backgroundColor: "white",
-    borderRadius: 5,
     borderRadius: 5,
     shadowColor: "#000",
     shadowOffset: { width: 2, height: 3 },
