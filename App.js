@@ -21,7 +21,7 @@ export default function App() {
         translucent={true}
         backgroundColor="transparent"
       />
-      <Login/>
+      <Navigation/>
     </View>
   );
 }
