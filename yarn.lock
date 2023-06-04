@@ -7561,10 +7561,17 @@
   "resolved" "https://registry.npmjs.org/react-native-gradle-plugin/-/react-native-gradle-plugin-0.71.15.tgz"
   "version" "0.71.15"
 
+<<<<<<< HEAD
 "react-native-maps@1.3.2":
   "integrity" "sha512-NB7HGRZOgxxXCWzrhIVucx/bsrEWANvk3DLci1ov4P9MQnEVQYQCCkTxsnaEvO191GeBOCRDyYn6jckqbfMtmg=="
   "resolved" "https://registry.npmjs.org/react-native-maps/-/react-native-maps-1.3.2.tgz"
   "version" "1.3.2"
+=======
+"react-native-maps@^1.4.0":
+  "integrity" "sha512-asP6oVx9uF4E9U22j40q0AcSJ4v3hPBPCg1kPdlbckGXGj+z8dwwdPkQi3hUpl94odlR//v60Sw6PAEYv8zSxw=="
+  "resolved" "https://registry.npmjs.org/react-native-maps/-/react-native-maps-1.4.0.tgz"
+  "version" "1.4.0"
+>>>>>>> 57cc9e051b583119f05d41227b5ed7369ecc2128
   dependencies:
     "@types/geojson" "^7946.0.8"
 
