@@ -6,7 +6,8 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Homepage from "./Screen/Homepage";
 import Maps from "./Screen/Maps";
 import  Login  from "./Component/Login";
-import Registration from'./Component/Registration';
+import Reset_password from'./Component/forgot_Password/Reset_password';
+import OTP from './Component/forgot_Password/OTP'
 
 
 
@@ -22,7 +23,7 @@ export default function App() {
         translucent={true}
         backgroundColor="transparent"
       />
-      <Navigation/>
+      <Reset_password/>
     </View>
   );
 }
