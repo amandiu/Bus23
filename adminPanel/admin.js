@@ -1,12 +1,21 @@
 import React from "react";
 import { Text, SafeAreaView, View, StyleSheet, TextInput } from "react-native";
-import DropDownPicker from 'react-native-dropdown-picker';
-
-
+import DropDownPicker from "react-native-dropdown-picker";
+import Button from "../Component/Button"
 
 const admin = () => {
+  // inpute text property
+
   const [text, onChangeText] = React.useState("Please input here");
-  const [number, onChangeNumber] = React.useState("");
+  const [number, onChangeNumber] = React.useState("1234");
+
+  // Drop Down property
+  // const [open, setOpen] = useState(false);
+  // const [value, setValue] = useState(null);
+  // const [items, setItems] = useState([
+  //   { label: "Apple", value: "apple" },
+  //   { label: "Banana", value: "banana" },
+  // ]);
 
   return (
     <SafeAreaView>
@@ -20,39 +29,70 @@ const admin = () => {
               onChangeText={onChangeText}
               value={text}
             />
-             <Text style={styles.InputteXt}>From Bus:</Text>
-            <TextInput
+            <Text style={styles.InputteXt}>From Bus:</Text>
+            {/* <DropDownPicker 
+             open={open}
+  value={value}
+  items={items}
+  setOpen={setOpen}
+  setValue={setValue}
+  setItems={setItems}
+            /> */}
+             <TextInput
               style={styles.input}
-              onChangeText={onChangeText}
+              onChangeText={onChangeNumber}
               value={text}
             />
-             <Text style={styles.InputteXt}>To Bus:</Text>
-            <TextInput
+
+            <Text style={styles.InputteXt}>To Bus:</Text>
+            {/* <DropDownPicker 
+             open={open}
+  value={value}
+  items={items}
+  setOpen={setOpen}
+  setValue={setValue}
+  setItems={setItems}
+            /> */}
+             <TextInput
               style={styles.input}
-              onChangeText={onChangeText}
+              onChangeText={onChangeNumber}
               value={text}
             />
           </View>
           <View style={styles.Cardstyle}>
-          <Text style={styles.InputteXt}>Time:</Text>
             <TextInput
               style={styles.input}
-              onChangeText={onChangeText}
-              value={text}
+              onChangeText={onChangeNumber}
+              value={number}
             />
-             <Text style={styles.InputteXt}>Date:</Text>
+            <Text style={styles.InputteXt}>Date:</Text>
             <TextInput
               style={styles.input}
-              onChangeText={onChangeText}
-              value={text}
+              onChangeText={onChangeNumber}
+              value={number}
             />
-             <Text style={styles.InputteXt}>Price:</Text>
+            <Text style={styles.InputteXt}>Price:</Text>
             <TextInput
               style={styles.input}
-              onChangeText={onChangeText}
-              value={text}
+              onChangeText={onChangeNumber}
+              value={number}
             />
           </View>
+        </View>
+        <Text style={styles.InputteXt}>This Section is Bus Driver:</Text>
+        <View style={styles.mainStyle}>
+          <Button
+            // accessibilityLabel="Learn more about this purple button"
+            // onPress={onPressLearnMore}
+            title="Press Ok"
+            color="#841584"
+          />
+          <Button
+            // accessibilityLabel="Learn more about this purple button"
+            // onPress={onPressLearnMore}
+            title="Press Cancle"
+            color="#841584"
+          />
         </View>
       </View>
     </SafeAreaView>
@@ -84,7 +124,7 @@ const styles = StyleSheet.create({
     shadowRadius: 5,
     elevation: 5,
     margin: 7,
-    padding:15
+    padding: 15,
   },
   mainStyle: {
     justifyContent: "space-between",
@@ -109,15 +149,15 @@ const styles = StyleSheet.create({
     height: "100%",
   },
   HeaderStyle: {
-    fontSize:24,
-    fontWeight:"800",
-    paddingBottom:20    
+    fontSize: 24,
+    fontWeight: "800",
+    paddingBottom: 20,
   },
-  InputteXt:{
-    fontSize:18,
-    fontWeight:"600",
-    marginTop:10
-  }
+  InputteXt: {
+    fontSize: 18,
+    fontWeight: "600",
+    marginTop: 10,
+  },
 });
 
 export default admin;
