@@ -2,7 +2,7 @@ import { View, Text, StyleSheet } from "react-native";
 import React from "react";
 import Button from "./Button";
 import moment from "moment";
-
+import { useNavigation } from "@react-navigation/native";
 
 //Date formate start
 
@@ -11,11 +11,12 @@ const date = moment().format("MM-Do-YYYY");
 //Date formate End
 
 //Time start
-const time = moment().startOf('minutes').fromNow(); 
+const time = moment().startOf("minutes").fromNow();
 // Time End
 
-const Card = ( {navigation} ) => {
-  return (
+const Card = ({}) => {
+  const navigation = useNavigation();
+  return ( 
     <View style={styles.Cardstyle}>
       <View style={styles.date}>
         <Text style={styles.dateText}>Date : {date}</Text>
@@ -25,17 +26,22 @@ const Card = ( {navigation} ) => {
       </View>
 
       <View style={styles.Cardbody}>
-
-        <View style={{flex:2, marginTop: "-5%" }}>
-          <Text style={{ fontSize: 18,marginTop: "1%", fontWeight: "700" }}>BusName: Elish Bus</Text>
+        <View style={{ flex: 2, marginTop: "-5%" }}>
+          <Text style={{ fontSize: 18, marginTop: "1%", fontWeight: "700" }}>
+            BusName: Elish Bus
+          </Text>
           <Text style={styles.dateText}>From : DIU Smart City</Text>
           <Text style={styles.dateText}>To : Mirpur-1</Text>
         </View>
 
-
-        <View style={{ marginLeft:'2%',flex:2,marginTop:"2%"}}>
+        <View style={{ marginLeft: "2%", flex: 2, marginTop: "2%" }}>
           <Text style={styles.dateText}>Price : 30 tk</Text>
-          <Button title="See Location" onPress={() => navigation.navigate("Mappages")} />
+          <Button
+            title="See Location"
+            onPress={() => {
+              navigation.navigate("Mappages");
+            }}
+          />
         </View>
       </View>
     </View>
