@@ -5,6 +5,9 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Homepage from "./Screen/Homepage";
 import Maps from "./Screen/Maps";
+import Admin from "./adminPanel/admin";
+import Card from "./Component/Card";
+
 
 
 
@@ -20,7 +23,7 @@ export default function App() {
         translucent={true}
         backgroundColor="transparent"
       />
-      <Navigation/>
+      <Admin/>
     </View>
   );
 }
