@@ -7,13 +7,13 @@ import Homepage from "./Screen/Homepage";
 import Maps from "./Screen/Maps";
 import Admin from "./adminPanel/admin";
 import Card from "./Component/Card";
-
-
-
+import Login from "./Component/Login";
+import Registration from "./Component/Registration";
+import UpComing from "./Screen/Upcaming";
+import OnWay from "./Screen/OnWay";
 
 
 const Stack = createNativeStackNavigator();
-
 
 export default function App() {
   return (
@@ -23,7 +23,7 @@ export default function App() {
         translucent={true}
         backgroundColor="transparent"
       />
-      <Admin/>
+      <Navigation />
     </View>
   );
 }
@@ -40,6 +40,11 @@ const Navigation = () => {
           component={Homepage}
         />
         <Stack.Screen name="Mappages" component={Maps} />
+        <Stack.Screen name="Login" component={Login} />
+        <Stack.Screen name="Registration" component={Registration} />
+        <Stack.Screen name="Admin" component={Admin} />
+        <Stack.Screen name="upcaming" component={UpComing} />
+        <Stack.Screen name="OnWay" component={OnWay} />
       </Stack.Navigator>
     </NavigationContainer>
   );
@@ -48,6 +53,6 @@ const Navigation = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    marginTop:"1%",
+    marginTop: "1%",
   },
 });

@@ -2,35 +2,25 @@ import React from "react";
 import { View, StyleSheet, Text, ScrollView } from "react-native";
 import Button from "../Component/Button";
 import Card from "../Component/Card";
-import Header from "../Component/Header";
 
-const Homepage = ({ navigation }) => {
+
+const OnWay = ({ navigation }) => {
   return (
-    <View>
-      <Header />
-      <View style={styles.buttonBox}>
-        <Button
-          onPress={() => {
-            navigation.navigate("OnWay");
-          }}
-          title="OnWay"
-        />
-        <Button
-          onPress={() => {
-            navigation.navigate("upcaming");
-          }}
-          title="UpComing"
-        />
-        <Button
-          onPress={() => {
-            navigation.navigate("Login");
-          }}
-          title="Admin LogIn"
-        />
+    <View >
+       <View style={styles.buttonBox}>
+        <Button onPress={()=>{
+          navigation.navigate("OnWay")
+        }} title="OnWay" />
+        <Button  onPress={()=>{
+          navigation.navigate("upcaming")
+        }}title="UpComing" />
+        <Button onPress={()=>{
+          navigation.navigate("Login")
+        }} title="Admin LogIn" />
       </View>
       <View style={styles.buttonBar}></View>
       <ScrollView>
-        <View style={{ marginBottom: "45%", marginTop: "1%" }}>
+        <View style={{marginBottom:'45%',marginTop:"1%"}}>
           <Card />
           <Card />
           <Card />
@@ -44,7 +34,7 @@ const Homepage = ({ navigation }) => {
   );
 };
 
-export default Homepage;
+export default OnWay;
 
 const styles = StyleSheet.create({
   buttonBox: {

@@ -60,6 +60,7 @@ const admin = () => {
             />
           </View>
           <View style={styles.Cardstyle}>
+          <Text style={styles.InputteXt}>Time:</Text>
             <TextInput
               style={styles.input}
               onChangeText={onChangeNumber}
