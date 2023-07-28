@@ -7,7 +7,8 @@ import {
 } from "react-native";
 import React from "react";
 
-const Fogtog = () => {
+const Fogtog = (navigation) => {
+  
   return (
     <View>
       <View style={styles.container}></View>
@@ -17,7 +18,7 @@ const Fogtog = () => {
           backgroundColor: "#9B9898",
           margin: "5%",
           padding: "2%",
-          borderRadius:15,
+          borderRadius: 15,
         }}
       >
         <View style={{ alignItems: "center" }}>
@@ -37,12 +38,17 @@ const Fogtog = () => {
             borderWidth: 1,
             borderRadius: 5,
             marginLeft: 10,
-            marginBottom:20,
+            marginBottom: 20,
             paddingHorizontal: 10,
           }}
         />
         <View style={{ alignItems: "center" }}>
-          <TouchableOpacity style={styles.Button}>
+          <TouchableOpacity
+            onPress={() => {
+              navigation?.navigate("Otp");
+            }}
+            style={styles.Button}
+          >
             <Text style={styles.Buttontext}>{"Continue"}</Text>
           </TouchableOpacity>
         </View>
@@ -68,7 +74,7 @@ const styles = StyleSheet.create({
     fontWeight: "600",
     color: "white",
     padding: "2%",
-    marginBottom:10,
+    marginBottom: 10,
   },
   Button: {
     width: "40%",
@@ -82,7 +88,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 12,
     margin: "3%",
     marginLeft: "-0.5%",
-    marginBottom:15
+    marginBottom: 15,
   },
   Buttontext: {
     fontSize: 16,

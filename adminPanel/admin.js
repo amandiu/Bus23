@@ -1,9 +1,10 @@
 import React from "react";
 import { Text, SafeAreaView, View, StyleSheet, TextInput } from "react-native";
 import DropDownPicker from "react-native-dropdown-picker";
-import Button from "../Component/Button"
-
-const admin = () => {
+import Button from "../Component/Button";
+import { getAuth, signOut } from "firebase/auth";
+import { auth } from "../fireBase";
+const Admin = ({ navigation }) => {
   // inpute text property
 
   const [text, onChangeText] = React.useState("Please input here");
@@ -38,7 +39,7 @@ const admin = () => {
   setValue={setValue}
   setItems={setItems}
             /> */}
-             <TextInput
+            <TextInput
               style={styles.input}
               onChangeText={onChangeNumber}
               value={text}
@@ -53,14 +54,14 @@ const admin = () => {
   setValue={setValue}
   setItems={setItems}
             /> */}
-             <TextInput
+            <TextInput
               style={styles.input}
               onChangeText={onChangeNumber}
               value={text}
             />
           </View>
           <View style={styles.Cardstyle}>
-          <Text style={styles.InputteXt}>Time:</Text>
+            <Text style={styles.InputteXt}>Time:</Text>
             <TextInput
               style={styles.input}
               onChangeText={onChangeNumber}
@@ -80,20 +81,22 @@ const admin = () => {
             />
           </View>
         </View>
-        <Text style={styles.InputteXt}>This Section is Bus Driver:</Text>
-        <View style={styles.mainStyle}>
-          <Button
-            // accessibilityLabel="Learn more about this purple button"
-            // onPress={onPressLearnMore}
-            title="Press Ok"
-            color="#841584"
-          />
-          <Button
-            // accessibilityLabel="Learn more about this purple button"
-            // onPress={onPressLearnMore}
-            title="Press Cancle"
-            color="#841584"
-          />
+        <View style={styles.logout}>
+            <Button
+              onPress={() => {
+                signOut(auth)
+                  .then(() => {
+                    // Sign-out successful.
+                  })
+                  .catch((error) => {
+                    // An error happened.
+                  });
+              }}
+              // accessibilityLabel="Learn more about this purple button"
+              // onPress={onPressLearnMore}
+              title="LogOut"
+              color="#841584"
+            />
         </View>
       </View>
     </SafeAreaView>
@@ -116,7 +119,7 @@ const styles = StyleSheet.create({
   main: {
     alignItems: "center",
     justifyContent: "center",
-    marginTop: "40%",
+    alignItems: "center",
     backgroundColor: "white",
     borderRadius: 5,
     shadowColor: "#000",
@@ -154,6 +157,11 @@ const styles = StyleSheet.create({
     fontWeight: "800",
     paddingBottom: 20,
   },
+  logout:{
+    marginTop:'5%',
+    width:'35%',
+    height:'15%'
+  },
   InputteXt: {
     fontSize: 18,
     fontWeight: "600",
@@ -161,4 +169,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default admin;
+export default Admin;

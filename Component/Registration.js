@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   View,
   StyleSheet,
@@ -7,14 +7,19 @@ import {
   TextInput,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../fireBase";
 
-const Registration = () => {
+const Registration = ({ navigation }) => {
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+
   return (
     <View
       style={{
-        marginVertical: "42%",
+        alignItems: "center",
         justifyContent: "center",
-        display: "flex"
+        display: "flex",
       }}
     >
       <View style={styles.login}>
@@ -63,6 +68,8 @@ const Registration = () => {
             Email
           </Text>
           <TextInput
+            value={email}
+            onChangeText={setEmail}
             placeholder="Email"
             placeholderTextColor={"white"}
             style={{
@@ -86,6 +93,8 @@ const Registration = () => {
             Password
           </Text>
           <TextInput
+            value={password}
+            onChangeText={setPassword}
             placeholder="Password"
             placeholderTextColor={"white"}
             style={{
@@ -121,7 +130,25 @@ const Registration = () => {
           />
         </View>
         <View>
-          <TouchableOpacity style={styles.Button}>
+          <TouchableOpacity
+            onPress={() => {
+              createUserWithEmailAndPassword(auth, email, password)
+                .then((userCredential) => {
+                  // Signed in
+                  const user = userCredential.user;
+                  //console.log(user)
+                  navigation?.navigate("Admin");
+                  // ...
+                })
+                .catch((error) => {
+                  const errorCode = error.code;
+                  const errorMessage = error.message;
+                  console.error(errorCode);
+                  // ..
+                });
+            }}
+            style={styles.Button}
+          >
             <Text style={styles.Buttontext}>{"Create Account"}</Text>
           </TouchableOpacity>
         </View>
@@ -130,7 +157,25 @@ const Registration = () => {
             <Text style={styles.Buttontext}>{"Already have an account?"}</Text>
           </View>
           <View>
-            <TouchableOpacity style={styles.Button}>
+            <TouchableOpacity
+              style={styles.Button}
+              onPress={() => {
+                createUserWithEmailAndPassword(auth, email, password)
+                  .then((userCredential) => {
+                    // Signed in
+                    const user = userCredential.user;
+                    //console.log(user)
+                    navigation?.navigate("Admin");
+                    // ...
+                  })
+                  .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error(errorCode);
+                    // ..
+                  });
+              }}
+            >
               <Text style={styles.Buttontext}>{"Login"}</Text>
             </TouchableOpacity>
           </View>
@@ -147,7 +192,7 @@ const styles = StyleSheet.create({
     height: 500,
     width: "90%",
     backgroundColor: "#9B9898",
-    paddingHorizontal:15,
+    paddingHorizontal: 15,
     justifyContent: "center",
     alignItems: "center",
     margin: "5%",

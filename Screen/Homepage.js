@@ -23,10 +23,16 @@ const Homepage = ({ navigation }) => {
         />
         <Button
           onPress={() => {
-            navigation.navigate("Login");
+            navigation.navigate("Registration");
           }}
           title="Admin LogIn"
         />
+        {/* <Button
+          onPress={() => {
+            navigation.navigate("Login");
+          }}
+          title="Admin LogIn"
+        /> */}
       </View>
       <View style={styles.buttonBar}></View>
       <ScrollView>

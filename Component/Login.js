@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   StyleSheet,
@@ -7,8 +7,20 @@ import {
   TextInput,
 } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { signInWithEmailAndPassword, signOut } from "firebase/auth";
+import { auth } from "../fireBase";
 
-const Login = () => {
+const Login = ({navigation}) => {
+  const [email,setEmail]=useState()
+  const [password,setPassword]=useState()
+
+  const signout=()=>{
+    signInWithEmailAndPassword(auth,email,password).then(() => {
+      // Sign-out successful.
+    }).catch((error) => {
+      // An error happened.
+    });
+  }
   return (
     <View
       style={{
@@ -69,16 +81,43 @@ const Login = () => {
         </View>
         <View style={styles.Stexts}>
           <View>
-            <TouchableOpacity style={styles.Button}>
+            <TouchableOpacity onPress={()=>{
+              navigation?.navigate("ForgatePassword")
+            }} style={styles.Button}>
               <Text style={styles.Buttontext}>{"Forgot Password?"}</Text>
             </TouchableOpacity>
           </View>
           <View>
-            <TouchableOpacity style={styles.Button}>
+            <TouchableOpacity
+              style={styles.Button}
+              onPress={() => {
+                createUserWithEmailAndPassword(auth, email, password)
+                  .then((userCredential) => {
+                    // Signed in
+                    const user = userCredential.user;
+                    //console.log(user)
+                    navigation?.navigate("Admin");
+                    // ...
+                  })
+                  .catch((error) => {
+                    const errorCode = error.code;
+                    const errorMessage = error.message;
+                    console.error(errorCode);
+                    // ..
+                  });
+              }}
+            >
               <Text style={styles.Buttontext}>{"Login"}</Text>
             </TouchableOpacity>
           </View>
         </View>
+        <View>
+            <TouchableOpacity onPress={()=>{
+              navigation?.navigate("Registration")
+            }} style={styles.Button}>
+              <Text style={styles.Buttontext}>{"Registration"}</Text>
+            </TouchableOpacity>
+          </View>
       </View>
     </View>
   );
