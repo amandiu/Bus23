@@ -5,13 +5,12 @@ import { StyleSheet, View, Text } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import Ionic from "react-native-vector-icons/Ionicons";
 import Homepage from "./Screen/Homepage";
 import Notification from "./Screen/BottomTab/Notification";
 import HelperPage from "./Screen/BottomTab/HelperPage";
 import Maps from "./Screen/Maps";
+import Ionic from "react-native-vector-icons/Ionicons";
 import Admin from "./adminPanel/admin";
-import Card from "./Component/Card";
 import Login from "./Component/Login";
 import Registration from "./Component/Registration";
 import UpComing from "./Screen/Upcaming";
@@ -20,6 +19,7 @@ import forgatePassword from "./Component/forgot_Password/Forgot";
 import OTP from "./Component/forgot_Password/OTP";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import { app } from "./fireBase";
+import { Title } from "react-native-paper";
 // import HelperPage from "./Screen/BottomTab/HelperPage";
 
 const Stack = createNativeStackNavigator();
@@ -49,7 +49,6 @@ const Navigation = () => {
 // StackNavigator
 
 function StackNavigator() {
-
   const [user, setUser] = useState(false);
   const [loader, setLoader] = useState(true);
   const auth = getAuth(app);
@@ -68,7 +67,6 @@ function StackNavigator() {
   if (loader) {
     return <Text>Loading</Text>;
   }
-
 
   return (
     <Stack.Navigator>
@@ -100,12 +98,36 @@ function StackNavigator() {
 
 function TabNavigator() {
   return (
-    <Tab.Navigator>
-      <Tab.Screen  options={{
-            headerShown: false,
-          }} name="Home" component={StackNavigator} />
+    <Tab.Navigator
+      screenOptions={({ route }) => ({
+        tabBarActiveTintColor: "red",
+        // tabBarInactiveTintColor: "black",
+        tabBarLabelStyle: { fontSize: 14 },
+        tabBarShowLabel: true,
+        tabBarIcon: ({ focused, size, color }) => {
+          let iconName;
+          if (route.name === "Home") {
+            iconName = focused ? "ios-home" : "ios-home-outline";
+          } else if (route.name === "Notification") {
+            iconName = focused ? "notifications" : "notifications-outline";
+          }else if (route.name === "Helper") {
+            iconName = focused ? "bus" : "bus-outline";
+          }
+          return <Ionic name={iconName} size={size} color={color} />;
+        },
+      })}
+    >
+      <Tab.Screen
+        options={{
+          headerShown: false,
+        }}
+        name="Home"
+        component={StackNavigator}
+      />
       <Tab.Screen name="Notification" component={Notification} />
-      <Tab.Screen name="HelperPage" component={HelperPage} />
+      <Tab.Screen 
+    
+     name="Helper" component={HelperPage} />
     </Tab.Navigator>
   );
 }
